@@ -34,8 +34,11 @@
 	func(PXE, pxe, na) \
 	func(DHCP, dhcp, na)
 
-/* Environment s/b at end of SPI, fix it later */
-#define CONFIG_ENV_IS_NOWHERE
+/* Environment is on internal emmc (mmc0), in filesystem (DATA partition, part #15) */
+#define CONFIG_ENV_IS_IN_EXT4
+#define EXT4_ENV_INTERFACE          "mmc"
+#define EXT4_ENV_DEVICE_AND_PART    "0:F"
+#define EXT4_ENV_FILE               "/uboot.env"
 
 /* SPI */
 #define CONFIG_SF_DEFAULT_MODE		SPI_MODE_0
